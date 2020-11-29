@@ -171,8 +171,8 @@ public class HomeActivity extends AppCompatActivity implements  NavigationView.O
         }
         else if (id == R.id.nav_settings)
         {
-           /* Intent intent = new Intent(HomeActivity.this, SettinsActivity.class);
-            startActivity(intent);*/
+            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+            startActivity(intent);
         }
         else if (id == R.id.nav_logout)
         {
