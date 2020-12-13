@@ -65,7 +65,7 @@
         android:id="@+id/profile_image_change_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Zmień profil"
+        android:text="Kliknij ten napis, by zmienić awatar"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"

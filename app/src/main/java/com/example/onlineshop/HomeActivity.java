@@ -84,6 +84,8 @@ public class HomeActivity extends AppCompatActivity implements  NavigationView.O
 
         userNameTextView.setText(Prevalent.currentOnlineUser.getName());
 
+        Picasso.get().load(Prevalent.currentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
+
         recyclerView = findViewById(R.id.recycler_menu);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -105,6 +107,15 @@ public class HomeActivity extends AppCompatActivity implements  NavigationView.O
                 homeViewModel.txtProductDescription.setText(products.getDescription());
                 homeViewModel.txtProductPrice.setText("Cena: " + products.getPrice() + " zł");
                 Picasso.get().load(products.getImage()).into(homeViewModel.imageView);
+
+                homeViewModel.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(HomeActivity.this, ProductDetailsActivity.class);
+                        intent.putExtra("pid",products.getPid());
+                        startActivity(intent);
+                    }
+                });
             }
 
             @NonNull
