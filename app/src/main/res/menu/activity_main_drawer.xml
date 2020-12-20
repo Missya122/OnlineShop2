@@ -10,9 +10,9 @@
             android:title="Koszyk"
             android:iconTint="@color/white"/>
         <item
-            android:id="@+id/nav_orders"
-            android:icon="@drawable/orders"
-            android:title="Zamówienia"
+            android:id="@+id/nav_search"
+            android:icon="@drawable/search"
+            android:title="Wyszukaj"
             android:iconTint="@color/white"/>
         <item
             android:id="@+id/nav_categories"
