@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button LoginButton;
     private ProgressDialog loadingBar;
 
-    private TextView AdminLink, NotAdminLink;
+    private TextView AdminLink, NotAdminLink, ForgetPasswordLink;
 
     private String parentDbname = "Users";
     private com.rey.material.widget.CheckBox chkBoxRememberMe;
@@ -50,12 +50,22 @@ public class LoginActivity extends AppCompatActivity {
         NotAdminLink = (TextView) findViewById(R.id.not_admin_panel_link);
         loadingBar = new ProgressDialog(this);
         chkBoxRememberMe = (CheckBox) findViewById(R.id.remember_me_chkb);
+        ForgetPasswordLink = findViewById(R.id.forget_password_link);
         Paper.init(this);
 
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loginUser();
+            }
+        });
+
+        ForgetPasswordLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,ResetPasswordActivity.class);
+                intent.putExtra("check","login");
+                startActivity(intent);
             }
         });
 
