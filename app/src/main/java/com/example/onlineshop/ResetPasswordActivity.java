@@ -1,8 +1,10 @@
 package com.example.onlineshop;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -73,6 +75,13 @@ public class ResetPasswordActivity extends AppCompatActivity {
         {
             phoneNumber.setVisibility(View.VISIBLE);
 
+            verifyButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    verifyUser();
+                }
+            });
+
         }
     }
 
@@ -96,7 +105,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if(task.isSuccessful()){
-                        Toast.makeText(ResetPasswordActivity.this,"Poprawnie odpowiedziałeś na pytania", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ResetPasswordActivity.this,"Zmiana poprawna", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(ResetPasswordActivity.this, HomeActivity.class);
                         startActivity(intent);
                     }
@@ -128,5 +137,89 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void verifyUser()
+    {
+        String phone = phoneNumber.getText().toString();
+        String answer1 = question1.getText().toString().toLowerCase();
+        String answer2 = question2.getText().toString().toLowerCase();
+
+        if(!phone.equals("") && !answer1.equals("") && !answer2.equals("")) {
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference()
+                    .child("Users").child(phone);
+
+            ref.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if( snapshot.exists()) {
+                        String mPhone = snapshot.child("phone").getValue().toString();
+
+                        if(snapshot.hasChild("SecurityQuestions")){
+                            String ans1= snapshot.child("SecurityQuestions").child("answer1").getValue().toString();
+                            String ans2 = snapshot.child("SecurityQuestions").child("answer2").getValue().toString();
+
+                            if(!ans1.equals(answer1) ){
+                                Toast.makeText(ResetPasswordActivity.this,"Twoja pierwsza odpowiedź jest błędna",Toast.LENGTH_SHORT).show();
+
+                            }
+                            else if(!ans2.equals(answer2) ){
+                                Toast.makeText(ResetPasswordActivity.this,"Twoja druga odpowiedź jest błędna",Toast.LENGTH_SHORT).show();
+
+                            }else{
+                                AlertDialog.Builder builder = new AlertDialog.Builder(ResetPasswordActivity.this);
+                                builder.setTitle("Nowe hasło");
+
+                                final EditText newPassword = new EditText(ResetPasswordActivity.this);
+                                newPassword.setHint("Wpisz nowe hasło");
+                                builder.setView(newPassword);
+                                builder.setPositiveButton("Zmień", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        if(!newPassword.getText().toString().equals("")) {
+                                            ref.child("password").setValue(newPassword.getText().toString())
+                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            if(task.isSuccessful()) {
+                                                                Toast.makeText(ResetPasswordActivity.this,"Hasło zmienione poprawnie",Toast.LENGTH_SHORT).show();
+                                                                Intent intent = new Intent(ResetPasswordActivity.this,LoginActivity.class);
+                                                                startActivity(intent);
+                                                            }
+                                                        }
+                                                    });
+                                        }else{
+
+                                        }
+                                    }
+                                });
+                                builder.setNegativeButton("Zamknij", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                builder.show();
+                            }
+                        }
+                        else{
+                            Toast.makeText(ResetPasswordActivity.this,"Nie ustawiłeś pytań bezpieczeństwa.",Toast.LENGTH_SHORT).show();;
+                        }
+                    }
+                    else{
+                        Toast.makeText(ResetPasswordActivity.this,"Ten numer telefonu nie istnieje",Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }else{
+            Toast.makeText(ResetPasswordActivity.this,"Proszę uzupełnić wszystkie pola.",Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 }
