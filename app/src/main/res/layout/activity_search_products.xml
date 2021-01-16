@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorTextDark"
     tools:context=".SearchProductsActivity">
 
     <RelativeLayout
@@ -33,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/search_product_name"
             android:text="Szukaj"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="16dp"
             android:textStyle="bold"
             android:padding="9dp"

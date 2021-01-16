@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/bg1"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_width="350dp"
+        android:layout_height="300dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:src="@drawable/logo"
-        />
+        android:src="@drawable/logo_sklep" />
+
+
 
    <!-- <TextView
         android:id="@+id/main_slogan"
@@ -42,7 +43,7 @@
         android:textAllCaps="false"
         android:textSize="18sp"
         android:text="Masz już konto? Zaloguj się"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/holo_orange_light"
 
         ></Button>
 
@@ -55,7 +56,7 @@
         android:textAllCaps="false"
         android:textSize="18sp"
         android:text="Zarejestruj się"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/holo_orange_light"
 
         ></Button>
 

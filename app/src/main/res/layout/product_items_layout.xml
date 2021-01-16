@@ -26,8 +26,8 @@
 
         <ImageView
             android:id="@+id/product_image"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_width="560dp"
+            android:layout_height="560dp"
             android:layout_below="@+id/product_name"
             android:scaleType="centerCrop"
             android:layout_marginTop="4dp"/>
@@ -41,7 +41,7 @@
             android:textAlignment="center"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             />
 
         <TextView
@@ -54,7 +54,7 @@
             android:textAlignment="center"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             />
 
     </RelativeLayout>

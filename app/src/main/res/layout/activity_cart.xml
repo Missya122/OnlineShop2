@@ -21,7 +21,7 @@
             android:textAlignment="center"
             android:layout_marginTop="10dp"
             android:text="Pełna suma: "
-            android:textColor="@color/white"
+            android:textColor="@android:color/black"
             android:textSize="20sp" />
 
     </RelativeLayout>
@@ -32,6 +32,7 @@
         android:id="@+id/cart_list"
         android:layout_below="@id/rlll"
         android:layout_above="@+id/next_process_button"
+        android:background="@color/colorTextDark"
         ></androidx.recyclerview.widget.RecyclerView>
 
     <Button
@@ -41,7 +42,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/colorPrimaryDark"
         android:text="Następny"
-        android:textColor="@color/white"
+        android:textColor="@android:color/holo_orange_light"
         android:textSize="20dp"
         />
 

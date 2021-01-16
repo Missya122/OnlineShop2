@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login"
+    android:background="@drawable/bg2"
     tools:context=".RegisterActivity">
 
     <ImageView
         android:id="@+id/register_Applogo"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:src="@drawable/logo"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:src="@drawable/logo_sklep"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"/>
+        android:layout_marginTop="100dp"/>
 
     <EditText
         android:id="@+id/register_username_input"
@@ -76,8 +76,8 @@
             android:layout_height="wrap_content"
             style="@style/Material.Drawable.CheckBox"
             android:text="Zapamiętaj mnie"
-            android:textColor="@color/white"
-            app:cbd_strokeColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimaryDark"
+            app:cbd_strokeColor="@color/white"
             android:gravity="center_vertical"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -91,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Zapomniałeś hasła?"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="17sp"
             android:textStyle="bold"
             android:layout_marginLeft="80dp"/>
@@ -108,7 +108,7 @@
         android:textAllCaps="false"
         android:textSize="18sp"
         android:text=" Zarejestruj się"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorPrimaryDark"
 
         ></Button>
 

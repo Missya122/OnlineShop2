@@ -110,7 +110,7 @@
         android:layout_below="@+id/settings_address"
         android:text="Ustaw Pytania Bezpieczeństwa"
         android:background="@color/colorPrimaryDark"
-        android:textColor="@color/white"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_margin="15dp"
         android:padding="10dp"/>
 
