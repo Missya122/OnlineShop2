@@ -97,12 +97,12 @@ public class CartActivity extends AppCompatActivity {
                                 builder.setItems(options, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        if( i==0) {
+                                        if( i == 0) {
                                             Intent intent = new Intent(CartActivity.this,ProductDetailsActivity.class);
                                             intent.putExtra("pid",cart.getPid());
                                             startActivity(intent);
                                         }
-                                        if(i == 1 ) {
+                                        else if(i == 1 ) {
                                             cartListRef.child("User View").child(Prevalent.currentOnlineUser.getPhone())
                                                     .child("Products")
                                                     .child(cart.getPid())

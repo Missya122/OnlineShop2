@@ -15,11 +15,6 @@
             android:title="Wyszukaj"
             android:iconTint="@color/white"/>
         <item
-            android:id="@+id/nav_categories"
-            android:icon="@drawable/category"
-            android:title="Kategorie"
-            android:iconTint="@color/white"/>
-        <item
         android:id="@+id/nav_settings"
         android:icon="@drawable/settings"
         android:title="Ustawienia"
