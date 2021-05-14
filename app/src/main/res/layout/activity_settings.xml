@@ -114,6 +114,17 @@
         android:layout_margin="15dp"
         android:padding="10dp"/>
 
+    <Button
+        android:id="@+id/statistics_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/security_questions_btn"
+        android:text="Wyświetl statystyki"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_margin="15dp"
+        android:padding="10dp"/>
+
 
 
 
