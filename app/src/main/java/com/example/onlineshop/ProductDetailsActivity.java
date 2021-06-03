@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -59,6 +60,19 @@ public class ProductDetailsActivity extends AppCompatActivity {
         });
     }
 
+    public void openBrowser(View view){
+
+        String url = (String)view.getTag();
+
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+
+        intent.setData(Uri.parse(url));
+
+        startActivity(intent);
+    }
+
     private void addingToCartList() {
         String saveCurrentTime, saveCurrentDate;
 
@@ -78,7 +92,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         cartMap.put("pid", productID);
         cartMap.put("pname", productName.getText().toString());
-        cartMap.put("price", productPrice.getText().toString());
+        cartMap.put("price", productPrice.getText().toString() + "zł");
         cartMap.put("date", saveCurrentDate);
         cartMap.put("time", saveCurrentTime);
         cartMap.put("quantity", numberButton.getNumber());

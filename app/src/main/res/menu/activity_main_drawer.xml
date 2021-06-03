@@ -21,6 +21,13 @@
             android:iconTint="@color/white"/>
 
         <item
+            android:id="@id/nav_facebook"
+            android:icon="@drawable/fbico"
+            android:title="Znajdź nas na Facebooku"
+            android:iconTint="@color/white"
+            />
+
+        <item
         android:id="@+id/nav_logout"
         android:icon="@drawable/logout"
         android:title="Wyloguj się"

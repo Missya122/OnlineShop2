@@ -52,6 +52,22 @@
         android:layout_marginTop="10dp"
         />
 
+    <ImageView
+        android:id="@+id/share_ico"
+        android:layout_width="150dp"
+        android:layout_height="84dp"
+        android:layout_below="@+id/product_price_details"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="-186dp"
+        android:layout_marginEnd="-1dp"
+        android:layout_marginRight="-1dp"
+        android:onClick="openBrowser"
+        android:padding="5dp"
+        android:src="@drawable/fb"
+        android:tag="https://www.facebook.com/" />
+
     <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
         android:id="@+id/number_btn"
         android:layout_width="211dp"

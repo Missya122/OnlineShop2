@@ -1,6 +1,7 @@
 package com.example.onlineshop;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -181,6 +182,17 @@ public class HomeActivity extends AppCompatActivity implements  NavigationView.O
         else if (id == R.id.nav_settings)
         {
             Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+            startActivity(intent);
+        }
+        else if( id == R.id.nav_facebook)
+        {
+
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.addCategory(Intent.CATEGORY_BROWSABLE);
+
+            intent.setData(Uri.parse("https://www.facebook.com/"));
+
             startActivity(intent);
         }
         else if (id == R.id.nav_logout)
