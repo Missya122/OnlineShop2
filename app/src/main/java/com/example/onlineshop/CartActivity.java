@@ -77,7 +77,7 @@ public class CartActivity extends AppCompatActivity {
                     protected void onBindViewHolder(@NonNull CartViewHolder cartViewHolder, int i, @NonNull Cart cart) {
 
                         cartViewHolder.txtProductQuantity.setText("Ilość: " + cart.getQuantity());
-                        cartViewHolder.txtProductPrice.setText("Cena: " + cart.getPrice()+ " zł");
+                        cartViewHolder.txtProductPrice.setText("Cena: " + cart.getPrice());
                         cartViewHolder.txtProductName.setText("Nazwa produktu: " + cart.getPname());
 
                         int oneTypeProductTPrice = ((Integer.valueOf(cart.getPrice()))) * Integer.valueOf(cart.getQuantity());
