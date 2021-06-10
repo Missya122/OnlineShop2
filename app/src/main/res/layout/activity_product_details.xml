@@ -52,6 +52,18 @@
         android:layout_marginTop="10dp"
         />
 
+    <TextView
+        android:id="@+id/product_price_currency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_description_details"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="330dp"
+        android:text="zł"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="25sp" />
+
     <ImageView
         android:id="@+id/share_ico"
         android:layout_width="150dp"
